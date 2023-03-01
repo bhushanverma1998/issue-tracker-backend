@@ -1,0 +1,51 @@
+<link rel="stylesheet" href="/css/home.css">
+<div id="create-div">
+    <button id="create-btn" title="Create New Project">Create Project</button>
+    <div id="create-div-modal">
+        <form action="/projects/create" method="post" id="create-div-form">
+            <h2>Create a Project</h2>
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="text" name="description" placeholder="Description" required>
+            <input type="text" name="author" placeholder="Author" required>
+            <div id="create-div-btns">
+                <input type="submit" value="Create Project">
+                <button id="create-div-close">Close</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div id="list-div">
+    <div id="list-title">
+        <h1>List of Projects</h1>
+    </div>
+    <hr>
+    <ul id="list-projects">
+        <% if(projects.length>0){%>
+            <%for(let project of projects){%>
+                <li class="list-projects-class">
+                    <div class="list-projects-title-container">
+                        <span title="Project Title" class="list-projects-title">
+                            <%=project.name%>
+                        </span><small title="Author">
+                            (<%=project.author%>)
+                        </small>
+                    </div>
+                    <a href="/projects/<%=project._id%>">
+                        <button title="View Project Details" class="list-projects-details-btn">
+                            View Details
+                        </button>
+                    </a>
+                </li>
+                <%}%>
+
+                    <% }else{%>
+                        <li>
+                            <span>No Project for Issue Found!</span>
+                        </li>
+                        <li>
+                            <span>Not to Worry! Just go and add something to your list</span>
+                        </li>
+                        <%}%>
+    </ul>
+</div>
+<script src="/js/home.js"></script>

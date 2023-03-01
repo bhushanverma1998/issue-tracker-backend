@@ -1,0 +1,205 @@
+#project-container {
+  width: 80%;
+  margin: auto;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+#project-container h1 {
+  text-transform: uppercase;
+  background: rgb(0, 95, 255);
+  background: linear-gradient(90deg, rgb(0, 95, 255) 0%, rgb(250, 69, 252) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+#project-container #project-title span {
+  color: grey;
+  font-size: 0.75rem;
+}
+
+#go-back-btn {
+  padding: 0.75rem;
+  border: 0;
+  color: white;
+  cursor: pointer;
+  background-color: red;
+}
+#go-back-btn:hover {
+  background-color: rgb(175, 0, 0);
+}
+
+#project-create-issue-btn {
+  padding: 0.75rem;
+  background-color: purple;
+  color: white;
+  transition: background-color 0.2s ease-in-out;
+  border: 0;
+  cursor: pointer;
+}
+#project-create-issue-btn:hover {
+  background-color: violet;
+}
+
+#project-create-issue-modal {
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  display: none;
+  backdrop-filter: blur(5px);
+  top: 0;
+  left: 0;
+}
+
+.modal-show {
+  display: flex !important;
+}
+
+#create-div-form {
+  background-color: purple;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 0px 20px 5px rgb(206, 206, 206);
+  justify-content: space-around;
+  border-radius: 20px;
+  height: 70%;
+  width: 70%;
+  word-spacing: 0.5rem;
+  letter-spacing: 0.1rem;
+  color: white;
+}
+#create-div-form input {
+  width: 80%;
+  height: 2rem;
+  border: 0;
+  background-color: transparent;
+  color: white;
+  font-size: 1.2rem;
+  border-bottom: 1px solid white;
+}
+#create-div-form input::-moz-placeholder, #create-div-form input::-webkit-input-placeholder, #create-div-form input::-ms-input-placeholder, #create-div-form input:-ms-input-placeholder, #create-div-form input:-moz-placeholder, #create-div-form input::placeholder {
+  color: white;
+  opacity: 1;
+}
+#create-div-form input:focus {
+  outline: none;
+}
+#create-div-form input[type=submit] {
+  background-color: purple;
+  border: 0;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  width: 40%;
+  height: 3rem;
+  transition: all 0.2s ease-in-out;
+}
+#create-div-form input[type=submit]:hover {
+  background-color: blueviolet;
+  box-shadow: 1px 1px 0px 1px white;
+}
+
+#create-issue-btns {
+  width: 100%;
+  text-align: center;
+}
+
+#create-div-close {
+  background-color: purple;
+  transition: all 0.2s ease-in-out;
+  border: 0;
+  cursor: pointer;
+  color: white;
+  border-radius: 0.5rem;
+  width: 40%;
+  height: 3rem;
+  font-size: 1.2rem;
+}
+#create-div-close:hover {
+  background-color: blueviolet;
+  box-shadow: 1px 1px 0px 1px white;
+}
+
+#list-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  width: 90%;
+}
+#list-div #list-title {
+  text-transform: uppercase;
+  background: rgb(0, 95, 255);
+  background: linear-gradient(90deg, rgb(0, 95, 255) 0%, rgb(250, 69, 252) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+#list-div #list-filters {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#list-div #list-filters form {
+  display: flex;
+  gap: 0.5rem;
+}
+#list-div #list-filters form input {
+  padding: 0.5rem 1rem;
+  border: 0;
+  width: 12rem;
+}
+#list-div #list-filters form input[type=submit] {
+  color: white;
+  background-color: greenyellow;
+  border: 0;
+  cursor: pointer;
+  width: 8rem;
+}
+#list-div #list-filters #author-div select {
+  width: 10rem;
+  padding: 0.5rem 1rem;
+  border: 0;
+  text-transform: capitalize;
+}
+#list-div #list-filters #author-div input[type=submit] {
+  padding: 0.5rem 1rem;
+  width: 7rem;
+  color: white;
+  background-color: purple;
+  border: 0;
+  cursor: pointer;
+}
+#list-div #list-filters a button {
+  padding: 1rem;
+  background-color: red;
+  color: white;
+  border: 0;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+#list-div #list-filters a button:hover {
+  background-color: rgb(196, 0, 0);
+}
+#list-div hr {
+  width: 100%;
+}
+#list-div #list-projects {
+  width: 100%;
+  padding: 1rem;
+}
+#list-div #list-projects .list-projects-row {
+  text-align: center;
+}
+#list-div #list-projects .list-projects-row input[type=button] {
+  background-color: yellowgreen;
+  border: 0;
+  color: white;
+  padding: 0.5rem 1rem;
+}
+#list-div #list-projects .list-projects-row td {
+  padding: 0.5rem;
+  text-transform: capitalize;
+}

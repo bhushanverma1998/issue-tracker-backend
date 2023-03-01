@@ -1,0 +1,97 @@
+<link rel="stylesheet" href="/css/project_details.css">
+<div id="project-container">
+    <h1>PROJECT DETAILS</h1>
+    <div id="project-title">
+        <b>TITLE :</b>
+        <%=project.name%>
+            <span id="project-author">
+                <i>(Author : <%=project.author%>)</i>
+            </span>
+    </div>
+    <div id="project-desc">
+        <b>DESCRIPTION : </b>
+        <%=project.description%>
+    </div>
+    <div id="project-create-issue-container">
+        <button id="project-create-issue-btn">Create Issue</button>
+        <a href="/"><button id="go-back-btn">Go Back</button></a>
+        <div id="project-create-issue-modal">
+            <form action="/projects/create_issue" method="post" id="create-div-form">
+                <h2>Create New Issue</h2>
+                <input type="text" name="title" placeholder="Title" required>
+                <input type="text" name="description" placeholder="Description" required>
+                <input type="text" name="labels" list="labels" placeholder="Add Labels more than 1 with commas">
+                <input type="text" name="author" placeholder="Author" required>
+                <input type="text" value="<%=project._id%>" hidden name="projectId">
+                <datalist id="labels">
+
+                </datalist>
+                <div id="create-issue-btns">
+                    <input type="submit" value="Create">
+                    <button id="create-div-close">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="list-div">
+    <div id="list-title">
+        <h1>List of Issues</h1>
+    </div>
+    <hr>
+    <div id="list-filters">
+        <form action="/projects/filter_search" method="post">
+            <input type="text" name="search" placeholder="Search by Title or Description">
+            <input type="text" name="projectId" value="<%=project._id%>" hidden>
+            <input type="submit" value="Search">
+        </form>
+        <div id="author-div">
+            <form action="/projects/filter_search" method="post">
+                <select name="author" id="author">
+                    <%if(authors.length>0){%>
+                        <% for(let data of authors){%>
+                            <option value="<%=data%>"><%=data%></option>
+                        <%}%>
+                    <%}%>
+                </select>
+                <input type="text" name="projectId" value="<%=project._id%>" hidden>
+                <input type="submit" value="Get By Author">
+            </form>
+        </div>
+        <div id="label-div">
+
+        </div>
+        <a href="/projects/<%=project._id%>"><button id="clear-filter">Clear Filter</button></a>
+    </div>
+    <hr>
+    <table id="list-projects">
+        <tr class="list-projects-row">
+            <th>Title</th>
+            <th>Description</th>
+            <th>Author</th>
+            <th>Status</th>
+        </tr>
+        <%if(issuesList.length>0){%>
+            <%for(let issues of issuesList){%>
+                <tr class="list-projects-row">
+                    <td>
+                        <%=issues.title%>
+                    </td>
+                    <td>
+                        <%=issues.description%>
+                    </td>
+                    <td>
+                        <%=issues.author%>
+                    </td>
+                    <td><input type="button" value="Open"></td>
+                </tr>
+                <%}%>
+                    <%}else{%>
+                        <tr>
+                            <td colspan="4" style="text-align: center;">No Issue for the Project</td>
+                        </tr>
+                        <%}%>
+    </table>
+</div>
+<script src="/js/project_details.js">
+</script>
