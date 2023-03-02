@@ -22,7 +22,13 @@ module.exports.getProject = async (req, res) => {
         const project = await Project.findById(req.params.id).populate('issues');
         const issues = project.issues;
         const authorData=[];
+        const labelsData=[];
         for(let issue of issues){
+            for(let labels of issue.labels){
+                if(!labelsData.includes(labels)){
+                    labelsData.push(labels);
+                }
+            }
             if(!authorData.includes(issue.author)){
                 authorData.push(issue.author);
             }
@@ -32,7 +38,8 @@ module.exports.getProject = async (req, res) => {
                 title: "Project Details - Issue Tracker App",
                 project: project,
                 issuesList: issues,
-                authors:authorData
+                authors:authorData,
+                labels:labelsData
             });
         }
         return res.status(404).redirect('/');
@@ -87,12 +94,22 @@ module.exports.filterBySearch = async (req, res) => {
                     filteredArray.push(project);
                 }
             }
+            if(req.body.labels){
+                for(let labels of project.labels){
+                    if(req.body[labels]){
+                        filteredArray.push(project);
+                        console.log("labels added");
+                        break;
+                    }
+                }
+            }
         }
         return res.status(200).render('project_details', {
             title: "Project Details - Issue Tracker",
             project: projects,
             issuesList: filteredArray,
-            authors:[req.body.author]
+            authors:[req.body.author],
+            labels:['Clear Filters']
         });
 
     } catch (error) {

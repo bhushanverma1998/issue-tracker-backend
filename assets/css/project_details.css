@@ -203,3 +203,70 @@
   padding: 0.5rem;
   text-transform: capitalize;
 }
+#list-div #list-projects .labels-title {
+  text-transform: uppercase;
+  background: rgb(0, 95, 255);
+  background: linear-gradient(90deg, rgb(0, 95, 255) 0%, rgb(250, 69, 252) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+#list-div #list-projects .labels-btn {
+  color: white;
+  background-color: red;
+  border: 0;
+  padding: 0.25rem 0.5rem;
+}
+
+.dropdown-check-list {
+  display: inline-block;
+  background-color: white;
+  border: 0;
+}
+.dropdown-check-list input {
+  width: auto !important;
+}
+.dropdown-check-list .anchor {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  padding: 5px 50px 5px 10px;
+  border: 1px solid #ccc;
+}
+.dropdown-check-list .anchor:after {
+  position: absolute;
+  content: "";
+  border-left: 2px solid black;
+  border-top: 2px solid black;
+  padding: 5px;
+  right: 10px;
+  top: 20%;
+  -moz-transform: rotate(-135deg);
+  -ms-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}
+.dropdown-check-list .anchor:active:after {
+  right: 8px;
+  top: 21%;
+}
+.dropdown-check-list ul.items {
+  padding: 2px;
+  position: absolute;
+  display: none;
+  margin: 0;
+  border: 1px solid #ccc;
+  border-top: none;
+  background-color: white;
+  padding: 1rem 2rem;
+}
+.dropdown-check-list ul.items li {
+  list-style: none;
+  padding: 0.25rem;
+}
+.dropdown-check-list .visible {
+  display: block !important;
+}
+.dropdown-check-list .visible .anchor {
+  color: #0094ff;
+}

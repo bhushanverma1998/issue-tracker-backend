@@ -8,3 +8,10 @@ $("#create-div-close").click((event)=>{
     $("#project-create-issue-modal").removeClass("modal-show");
     $("#project-create-issue-btn").css("display","block");
 })
+
+
+//dropdown list 
+$('#anchor').click((event)=>{
+    event.preventDefault();
+    $("#items").toggleClass('visible');
+})

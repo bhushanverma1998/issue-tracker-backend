@@ -46,19 +46,40 @@
             <input type="submit" value="Search">
         </form>
         <div id="author-div">
-            <form action="/projects/filter_search" method="post">
-                <select name="author" id="author">
-                    <%if(authors.length>0){%>
+            <%if(authors.length>0){%>
+                <form action="/projects/filter_search" method="post">
+                    <select name="author" id="author">
                         <% for(let data of authors){%>
-                            <option value="<%=data%>"><%=data%></option>
-                        <%}%>
-                    <%}%>
-                </select>
-                <input type="text" name="projectId" value="<%=project._id%>" hidden>
-                <input type="submit" value="Get By Author">
-            </form>
+                            <option value="<%=data%>">
+                                <%=data%>
+                            </option>
+                            <%}%>
+                    </select>
+                    <input type="text" name="projectId" value="<%=project._id%>" hidden>
+                    <input type="submit" value="Filter By Author">
+                </form>
+                <%}%>
         </div>
         <div id="label-div">
+            <%if(labels.length>0){%>
+                <form action="/projects/filter_search" method="post">
+                    <div id="dropdown-list" class="dropdown-check-list">
+                        <span id="anchor" class="anchor">Select Labels</span>
+                        <ul id="items" class="items">
+                            <%for(let label of labels){%>
+                                <li>
+                                    <input type="checkbox" class="label-checkbox" name="<%=label%>" id="<%=label%>"
+                                        value="<%=label%>">
+                                    <%=label%>
+                                </li>
+                                <%}%>
+                        </ul>
+                    </div>
+                    <input type="text" value="<%=project._id%>" name="projectId" hidden>
+                    <input type="text" name="labels" value="labels" hidden>
+                    <input id="filterByLabels" type="submit" value="Filter By Labels">
+                </form>
+                <%}%>
 
         </div>
         <a href="/projects/<%=project._id%>"><button id="clear-filter">Clear Filter</button></a>
@@ -84,6 +105,17 @@
                         <%=issues.author%>
                     </td>
                     <td><input type="button" value="Open"></td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <span class="labels-title">Labels:</span>
+                        <%for(let labels of issues.labels){%>
+                            <button class="labels-btn">
+                                <i class="fa-solid fa-hashtag"></i>
+                                <%=labels%>
+                            </button>
+                            <%}%>
+                    </td>
                 </tr>
                 <%}%>
                     <%}else{%>
