@@ -54,7 +54,7 @@ module.exports.createIssue = async (req, res) => {
     try {
         const project = await Project.findById(req.body.projectId);
         if (project) {
-            const labelsList = (req.body.labels).split(",");
+            const labelsList = ((req.body.labels).toLowerCase()).split(",");
             const issue = new Issue({
                 title: (req.body.title).toLowerCase(),
                 description: (req.body.description).toLowerCase(),
@@ -81,9 +81,18 @@ module.exports.filterBySearch = async (req, res) => {
     try {
         const projects = await Project.findOne({ _id: req.body.projectId }).populate('issues');
         let filteredArray = [];
+        const authorData=[];
+        const labelsData=[];
 
         for (let project of projects.issues) {
-            console.log('project loop')
+            for(let labels of project.labels){
+                if(!labelsData.includes(labels)){
+                    labelsData.push(labels);
+                }
+            }
+            if(!authorData.includes(project.author)){
+                authorData.push(project.author);
+            }
             if(req.body.search){
                 if ((project.title).includes(req.body.search) || (project.description).includes(req.body.search)) {
                     filteredArray.push(project);
@@ -108,8 +117,8 @@ module.exports.filterBySearch = async (req, res) => {
             title: "Project Details - Issue Tracker",
             project: projects,
             issuesList: filteredArray,
-            authors:[req.body.author],
-            labels:['Clear Filters']
+            authors:authorData,
+            labels:labelsData
         });
 
     } catch (error) {

@@ -51,6 +51,7 @@
   backdrop-filter: blur(5px);
   top: 0;
   left: 0;
+  z-index: 1;
 }
 
 .modal-show {
@@ -215,6 +216,7 @@
   background-color: red;
   border: 0;
   padding: 0.25rem 0.5rem;
+  text-transform: capitalize;
 }
 
 .dropdown-check-list {
@@ -231,6 +233,7 @@
   display: inline-block;
   padding: 5px 50px 5px 10px;
   border: 1px solid #ccc;
+  z-index: 0;
 }
 .dropdown-check-list .anchor:after {
   position: absolute;
@@ -269,4 +272,74 @@
 }
 .dropdown-check-list .visible .anchor {
   color: #0094ff;
+}
+
+@media screen and (max-width: 1200px) {
+  #list-div {
+    width: 95%;
+  }
+  #list-div #list-title {
+    font-size: 0.75rem;
+  }
+  #list-div #list-filters form input {
+    padding: 0.5rem;
+    font-size: 0.75rem;
+    width: 8rem;
+  }
+  #list-div #list-filters form input[type=submit] {
+    width: 6rem;
+  }
+  #list-div #list-filters #clear-filter {
+    font-size: 0.75rem;
+    width: 6rem;
+  }
+  #list-div #items {
+    padding: 1rem;
+  }
+  #list-div #list-projects {
+    font-size: 0.9rem;
+  }
+}
+@media screen and (max-width: 992px) {
+  #list-div {
+    width: 100%;
+  }
+  #list-div #list-title {
+    font-size: 0.6rem;
+  }
+  #list-div #list-filters {
+    width: 90%;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  #list-div #list-filters form, #list-div #list-filters div {
+    width: 100%;
+  }
+  #list-div #list-filters form input, #list-div #list-filters form select, #list-div #list-filters div input, #list-div #list-filters div select {
+    width: 100%;
+  }
+  #list-div #list-filters form #author, #list-div #list-filters div #author {
+    width: 100%;
+  }
+  #list-div #list-filters #dropdown-list {
+    width: 100%;
+  }
+  #list-div #list-filters #anchor {
+    width: 92%;
+  }
+  #list-div #items {
+    width: 50vw;
+    padding: 1rem;
+  }
+  #list-div #list-projects {
+    font-size: 0.7rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  #list-div {
+    width: 95%;
+  }
+  #list-div #anchor {
+    width: 80% !important;
+  }
 }
