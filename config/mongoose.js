@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 //connect to db
-mongoose.connect('mongodb://localhost:27017/issue_tracker_db', {
+mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     family: 4,
