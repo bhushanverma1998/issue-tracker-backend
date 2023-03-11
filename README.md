@@ -1,4 +1,4 @@
-# AlarmClock
+# Issue Tracker Backend
 
 A simple Issue Tracker Project made using Node.js,Express.js,EJS template Engine, and Mongodb.
 
