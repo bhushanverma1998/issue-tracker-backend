@@ -21,7 +21,7 @@ The link to the final hosted webpage is : https://clever-smock-toad.cyclic.app/
 
 3. ## Create an Issue :
 <p>On the top of Project details page we have button create issue.</p>
-<p>we can create the issue for the project by pressing the create issue button</p>
+<p>we can create the issue for the project by pressing the create issue button.</p>
 
  ![image (assets/git/alarm-list-empty.png=400*250)](/assets/git/issuePage.png)
 
